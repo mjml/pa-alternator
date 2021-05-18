@@ -1,0 +1,15 @@
+[Unit]
+Description=Alternating the default audio sink between main speakers during the day and the headphones at night.
+Requires=pulseaudio.service
+After=pulseaudio.service
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=oneshot
+# Service is 'active' after after process exits
+RemainAfterExit=yes
+ExecStart=/bin/bash /home/joya/bin/pulseaudio/pasink-alternator.sh
+WorkingDirectory=/home/joya/bin/pulseaudio
+

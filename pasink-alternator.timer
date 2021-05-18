@@ -1,0 +1,10 @@
+[Unit]
+Name=pasink-alternator timer 10am and 7pm.
+
+[Install]
+WantedBy=multi-user.target
+
+[Timer]
+OnCalendar=*-*-* 10:00:00
+OnCalendar=*-*-* 19:00:00
+Unit=pasink-alternator.service

@@ -1,0 +1,22 @@
+
+# Get the index of a pulseaudio sink using a regex
+function pa-get-index () {
+		cmd=$1
+		export regexp=$2
+		pacmd $cmd | perl -ne '
+$re = $ENV{regexp};
+if (/index: (\d+)/) { 
+ 	 $index = $1;
+} elsif (/device.profile.name = \"([^\"]+)\"/) {
+	#print "$1 is $index";
+  if (/$re/) {
+	  #print "  Found it!";
+    print "$index\n"
+  }
+  #print("\n");
+}
+'
+}
+
+
+
