@@ -11,7 +11,10 @@ else
 		device_pattern="analog-stereo"
 fi
 
+# Get the index of the sink with this attribute and value pattern.
 index=$(pa-get-index list-sinks "device.profile.name" "$device_pattern")
+
+# Set the default sink to the index we found.
 pacmd set-default-sink $index
 
 
