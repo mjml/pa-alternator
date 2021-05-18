@@ -1,5 +1,5 @@
 [Unit]
-Name=pasink-alternator timer 10am and 7pm.
+Description=pasink-alternator timer for 10am and 7pm.
 
 [Install]
 WantedBy=multi-user.target
